@@ -1,0 +1,67 @@
+<ScrollView
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:background="@mipmap/inner_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.bluecepheid.admin.vdonor.Shareskip">
+    <com.bluecepheid.admin.vdonor.CircleProgressBar
+        android:id="@+id/pBar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+
+        android:layout_centerHorizontal="true"
+
+       android:layout_below="@+id/text"
+
+
+        app:mlpb_enable_circle_background="false"
+        android:visibility="invisible"
+        app:mlpb_arrow_width="10dp"
+        app:mlpb_progress_stoke_width="5dp"
+        />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:background="@mipmap/top_strip1"
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="VDONOR"
+
+            android:layout_gravity="center"
+
+            android:textColor="#ffffffff"
+            android:textSize="20sp"/>
+
+    </android.support.v7.widget.Toolbar>
+<TextView android:id="@+id/lab1" android:layout_below="@+id/tool_bar" android:layout_marginTop="30dp" android:textColor="#fff1dec0" android:textSize="18dp" android:layout_centerHorizontal="true" android:gravity="center" android:layout_height="wrap_content" android:layout_width="300dp" android:text="Thank you for taking a step to DONATE and SAVE someone's life"/>
+    <TextView android:id="@+id/lab2" android:layout_marginTop="30dp" android:layout_below="@+id/lab1" android:textSize="18dp" android:layout_centerHorizontal="true" android:gravity="center" android:layout_height="wrap_content" android:layout_width="300dp" android:text="Let your friends know about your initiative"/>
+
+    <ImageView android:id="@+id/image" android:layout_marginTop="10dp" android:layout_centerHorizontal="true" android:layout_below="@+id/lab2" android:layout_height="200dp" android:layout_width="match_parent"/>
+
+    <RelativeLayout android:id="@+id/share" android:layout_marginTop="30dp" android:layout_below="@+id/image" android:layout_centerHorizontal="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/fbshare" android:layout_width="300dp" android:layout_height="40dp" android:text="Share via Social Media" android:textColor="#ffffffff" android:background="#ffd61d23"/>
+    <TextView android:id="@+id/skip" android:layout_below="@+id/fbshare"   android:layout_width="300dp" android:layout_height="40dp" android:text="Skip" android:textColor="#000" android:gravity="center" />
+    </RelativeLayout>
+    <TextView android:id="@+id/text" android:gravity="center" android:textStyle="bold" android:background="#ffd61d23" android:textColor="#fff" android:layout_marginTop="10dp" android:text="Donors Near You" android:layout_width="match_parent" android:layout_height="40dp" android:layout_below="@+id/share"/>
+    <ListView android:id="@+id/dlist"
+        android:padding="2dp"
+
+        android:dividerHeight="2.0sp"
+        android:layout_height="wrap_content" android:paddingLeft="10dp"
+        android:paddingRight="10dp" android:layout_width="wrap_content"
+
+        android:layout_below="@+id/text" />
+</RelativeLayout>
+</ScrollView>

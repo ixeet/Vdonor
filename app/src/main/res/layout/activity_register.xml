@@ -1,0 +1,351 @@
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/inner_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+ android:paddingTop="30dp"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.bluecepheid.admin.vdonor.CircleProgressBar
+            android:id="@+id/pBar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+
+            app:mlpb_enable_circle_background="false"
+            android:visibility="invisible"
+            app:mlpb_arrow_width="10dp"
+            app:mlpb_progress_stoke_width="5dp"
+            />
+        <com.bluecepheid.admin.vdonor.RoundedImageView
+            android:id="@+id/pro_img"
+            android:layout_width="80dp"
+            android:src="@mipmap/no_photo"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+<RelativeLayout android:layout_height="match_parent" android:paddingTop="30dp" android:layout_centerHorizontal="true" android:gravity="center" android:layout_below="@+id/pro_img" android:layout_width="match_parent" android:id="@+id/layout">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/l"
+            >
+
+
+            <EditText
+                android:id="@+id/spnr_gen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="Mr."
+                android:textCursorDrawable="@drawable/mycursor1"
+                android:textColorHint="#454545"
+                android:focusable="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+
+            <ImageView
+                android:id="@+id/img_gen"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@mipmap/arrow"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/spnr_gen"
+                android:layout_alignEnd="@+id/spnr_gen" />
+
+        </RelativeLayout>
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/f_name"
+        android:hint="First Name"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textCursorDrawable="@drawable/mycursor1"
+        android:textColorHint="#454545"
+        android:textSize="12sp"
+        android:imeOptions="actionNext"
+        android:layout_alignBottom="@+id/l"
+       android:layout_toRightOf="@+id/l"/>
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/l_name"
+        android:hint="Last Name"
+        android:maxLines="1"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        android:textCursorDrawable="@drawable/mycursor1"
+        android:textColorHint="#454545"
+        android:textSize="12sp"
+        android:layout_alignBottom="@+id/l"
+        android:layout_toRightOf="@+id/f_name"/>
+<TextView android:id="@+id/plus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  +91" android:textColorHint="#454545"
+    android:textSize="12sp"
+    android:layout_below="@+id/f_name"
+    android:layout_marginTop="10dp"
+    android:layout_alignBaseline="@+id/m_number"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"/>
+    <EditText
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/m_number"
+        android:hint="Mobile Number"
+        android:textCursorDrawable="@drawable/mycursor1"
+        android:inputType="number"
+        android:textColorHint="#454545"
+        android:textSize="12sp"
+
+
+        android:layout_below="@+id/f_name"
+        android:layout_marginTop="10dp"
+       android:layout_toRightOf="@+id/plus"/>
+    <CheckBox
+        android:id="@+id/pub_chk1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff454545"
+        android:text=" Public"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"
+
+
+        android:layout_below="@+id/f_name"
+        android:layout_toRightOf="@+id/m_number"/>
+
+    <EditText
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/email_id"
+        android:hint="Email Address (Optional)"
+        android:textCursorDrawable="@drawable/mycursor1"
+        android:textColorHint="#454545"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        android:imeOptions="actionNext"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_below="@+id/m_number"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/dob"
+        android:singleLine="true"
+        android:hint="Date of Birth"
+
+        android:textCursorDrawable="@drawable/mycursor1"
+        android:textSize="12sp"
+        android:focusable="false"
+        android:layout_below="@+id/email_id"
+        android:textColorHint="#454545"
+        android:layout_marginTop="10dp" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/b_group"
+android:layout_toRightOf="@+id/dob"
+        android:layout_below="@+id/email_id"
+        android:layout_marginTop="10dp"
+        >
+
+
+        <EditText
+            android:id="@+id/spnr_blood"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:hint="Blood Group"
+            android:textCursorDrawable="@drawable/mycursor1"
+            android:textColorHint="#454545"
+            android:focusable="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+        <ImageView
+            android:id="@+id/img_blood"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@mipmap/arrow"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/spnr_blood"
+            android:layout_alignEnd="@+id/spnr_blood" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/last"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:layout_below="@+id/dob"
+        android:layout_marginTop="10dp"
+       >
+        <EditText
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/l_donate"
+            android:hint="Last Donated"
+            android:textSize="12sp"
+            android:focusable="false"
+            android:textCursorDrawable="@drawable/mycursor1"
+            android:textColorHint="#454545"
+
+            />
+        <ImageView
+            android:id="@+id/img_last"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@mipmap/arrow"
+
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/l_donate"
+            android:layout_alignEnd="@+id/l_donate" />
+        </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/staterl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/last"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+      android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:id="@+id/spnr_state"
+            android:layout_width="115dp"
+            android:layout_height="40dp"
+            android:hint="Select State"
+            android:textCursorDrawable="@drawable/mycursor1"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColorHint="#454545"
+            android:focusable="false"
+             />
+
+        <ImageView
+            android:id="@+id/img_state"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@mipmap/arrow"
+
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/spnr_state"
+            android:layout_alignEnd="@+id/spnr_state" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/cityrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/last"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+       android:layout_toRightOf="@+id/staterl">
+
+        <EditText
+            android:id="@+id/spnr_city"
+            android:layout_width="115dp"
+            android:layout_height="40dp"
+            android:hint="Select City"
+            android:textCursorDrawable="@drawable/mycursor1"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColorHint="#454545"
+            android:focusable="false"
+            />
+
+        <ImageView
+            android:id="@+id/img_city"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@mipmap/arrow"
+
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/spnr_city"
+            android:layout_alignEnd="@+id/spnr_city" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/locrl"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cityrl"
+        >
+
+        <EditText
+            android:id="@+id/spnr_loc"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:hint="Select Locality"
+            android:textSize="12sp"
+            android:focusable="false"
+            android:textCursorDrawable="@drawable/mycursor1"
+            android:textColorHint="#454545"
+       />
+
+        <ImageView
+            android:id="@+id/img_loc"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@mipmap/arrow"
+
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/spnr_loc"
+            android:layout_alignEnd="@+id/spnr_loc" />
+    </RelativeLayout>
+    <EditText
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/add"
+        android:hint="Address"
+        android:imeOptions="actionDone"
+        android:textCursorDrawable="@drawable/mycursor1"
+        android:textColorHint="#454545"
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/locrl"
+     />
+    <RelativeLayout android:id="@+id/latlong"  android:layout_marginTop="20dp" android:layout_below="@+id/add" android:layout_height="wrap_content" android:layout_width="wrap_content">
+
+        <TextView android:id="@+id/latt" android:textSize="10dp" android:layout_marginRight="5dp" android:layout_width="120dp" android:layout_height="wrap_content" />
+        <TextView android:id="@+id/longg" android:textSize="10dp" android:layout_marginLeft="5dp" android:layout_toRightOf="@id/latt" android:layout_width="120dp" android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btnsubmit"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/latlong"
+        android:background="#ffd61d23"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+
+        android:text="Register to Donate"/>
+</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">VDONOR</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">631089420365708</string>
+    <!--PRODUCTION URL  <string name="base_url">http://191.239.57.54:8082/iDonyte</string>  -->
+
+
+    <string name="base_url">http://191.239.57.54:8081/iDonyte</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_donor">DonorActivity</string>
+    <string name="title_activity_prescription">PrescriptionActivity</string>
+    <string name="title_activity_symptons">SymptonsActivity</string>
+    <string name="title_activity_hospital">HospitalActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_shareskip">Shareskip</string>
+    <string name="title_activity_register2">Register2Activity</string>
+    <string name="title_activity_donoredit">DonoreditActivity</string>
+    <string name="title_activity_receiveredit">ReceivereditActivity</string>
+    <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_guideline">GuidelineActivity</string>
+</resources>
