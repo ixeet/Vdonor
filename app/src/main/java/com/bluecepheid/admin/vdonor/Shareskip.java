@@ -134,7 +134,7 @@ ImageView image;
         fbshare=(Button)findViewById(R.id.fbshare);
         shareDialog = new ShareDialog(this);
         skip=(TextView)findViewById(R.id.skip);
-        dlist=(ListView)findViewById(R.id.dlist);
+      //-- dlist=(ListView)findViewById(R.id.dlist);
         image=(ImageView)findViewById(R.id.image);
         SharedPreferences s1= getSharedPreferences(STORAGE_DATA, Context.MODE_PRIVATE);
         lat = s1.getString("lat", "");
@@ -227,7 +227,7 @@ ImageView image;
                     "Please connect to Internet",
                     Toast.LENGTH_LONG).show();
         }
-        if(isNetworkAvailable()) {
+       /* if(isNetworkAvailable()) {
             new Loadlist1().execute();
         }
         else
@@ -235,7 +235,7 @@ ImageView image;
             Toast.makeText(getApplicationContext(),
                     "Please connect to Internet",
                     Toast.LENGTH_LONG).show();
-        }
+        }*/
 
         skip.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         skip.setOnClickListener(new View.OnClickListener() {
@@ -552,69 +552,7 @@ Log.d("location ha",lat+longg+group1);
                 flag1=new String[list9.size()];
                 countrylist1 = new ArrayList<DonorModel1>();
                 for (int i = 0; i < name.length; i++) {
-                    /*String REGISTER_URL1 = "http://191.239.57.54:8080/iDonyte/rest/common/getDistricts/stateId/"+state[i];
 
-                    GetJsonObject json1=new GetJsonObject();
-                    String response1 =json1.getWebServceObj(REGISTER_URL1);
-                    try {
-                        JSONObject jsonResponse = new JSONObject(response1);
-                        if(jsonResponse.getString("statusMessage").equals("success")){
-                            JSONArray jsonDistArr = jsonResponse.getJSONArray("districtList");
-                            int[] districIdArr = new int[jsonDistArr.length()];
-                            for(int k=0;k<jsonDistArr.length();k++){
-                                JSONObject jsonDisObj = jsonDistArr.getJSONObject(k);
-                                String areaList = jsonDisObj.getJSONArray("areaList").toString();
-                                String districtName = jsonDisObj.getString("districtName");
-                                String districId=jsonDisObj.getString("districtId");
-                                Boolean d=sqliteHelper4.saveUser(districtName,districId);
-                                Log.d("distric saved",""+d);
-                                Log.d("areaa",areaList);
-                                // list.add(jsonDisObj.getString("districtName"));
-                                Boolean p11=sqliteHelper1.saveUser(districtName,areaList);
-                            }
-                            //dname = list.toArray(new String[list.size()]);
-                        }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-
-                    Cursor cursor1 = sqliteHelper2.getUser1(state[i]);
-                    if (cursor1.getCount() != 0) {
-                        cursor1.moveToFirst();
-                        state[i] = cursor1.getString(cursor1.getColumnIndex("id"));
-                    }
-                    Cursor cursor2 = sqliteHelper4.getUser1(district[i]);
-                    if (cursor2.getCount() != 0) {
-                        cursor2.moveToFirst();
-                        district[i] = cursor2.getString(cursor2.getColumnIndex("id"));
-                    }
-                    Cursor cursor = sqliteHelper1.getUser(district[i]);
-                    if (cursor.getCount() != 0) {
-                        cursor.moveToFirst();
-                        area1 = cursor.getString(cursor.getColumnIndex("area"));
-                    }
-                    try {
-                        JSONArray jsonAreaArr = new JSONArray(area1);
-                        String []areaArr = new String[jsonAreaArr.length()];
-                        for(int jj=0;jj<jsonAreaArr.length();jj++){
-                            JSONObject jsonAreaObj = jsonAreaArr.getJSONObject(jj);
-                            String areaId = jsonAreaObj.getString("areaId");
-                            String areaName = jsonAreaObj.getString("areaName");
-                            //  areaArr[jj]=areaName;
-                            Boolean d=sqliteHelper5.saveUser(areaName,areaId);
-                            Log.d("area saved",""+d);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                    Cursor cursor3 = sqliteHelper5.getUser1(area[i]);
-                    if (cursor3.getCount() != 0) {
-                        cursor3.moveToFirst();
-                        area[i] = cursor3.getString(cursor3.getColumnIndex("id"));
-                    }*/
 
                     DonorModel1 country = new DonorModel1(name[i],OtherName[i],contactNo[i],address1[i],area[i],district[i],state[i],gender[i],groupId[i],mflag[i]);
                     countrylist1.add(country);
