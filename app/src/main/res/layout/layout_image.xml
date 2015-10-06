@@ -78,9 +78,9 @@
             android:layout_height="wrap_content"
             android:text="AB+"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:ellipsize="end"
-            android:textStyle="italic"
+            android:textStyle="italic|bold"
             android:layout_below="@+id/tvName"
             android:layout_toRightOf="@+id/lblBloodGroup"
             android:layout_toEndOf="@+id/lblBloodGroup" />

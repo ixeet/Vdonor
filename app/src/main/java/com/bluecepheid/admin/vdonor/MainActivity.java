@@ -242,7 +242,7 @@ public class MainActivity extends Activity {
                 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                         InputMethodManager.HIDE_NOT_ALWAYS);
                 phoneNo = verify.getText().toString();
-            SharedPreferences sharedPreferences1 = getSharedPreferences(STORAGE_NAME, Context.MODE_PRIVATE);
+            /*SharedPreferences sharedPreferences1 = getSharedPreferences(STORAGE_NAME, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor1 = sharedPreferences1.edit();
                 // editor.putString("message",messageReceived);
 
@@ -258,8 +258,8 @@ public class MainActivity extends Activity {
                              "please connect to internet",
                               Toast.LENGTH_LONG).show();
                 }
-
-           /*if (v1.getTag() == null) {
+*/
+           if (v1.getTag() == null) {
                     // Toast.makeText(getApplicationContext(),
                     //  "" + v1.getTag(),
                     //   Toast.LENGTH_LONG).show();
@@ -310,7 +310,7 @@ public class MainActivity extends Activity {
                     stat.setVisibility(View.INVISIBLE);
                 }
 
-*/
+
             }
         });
 

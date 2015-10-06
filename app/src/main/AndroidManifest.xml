@@ -125,6 +125,10 @@
             android:name=".GuidelineActivity"
             android:label="@string/title_activity_guideline" >
         </activity>
+        <activity
+            android:name=".ShareSkip1"
+            android:label="@string/title_activity_share_skip1" >
+        </activity>
     </application>
 
 </manifest>

@@ -895,6 +895,7 @@ String []splited;
                 //   editor.putString("message", messageReceived);
                 editor.putBoolean("verified",true);
                 editor.apply();
+                editor.commit();
                 SharedPreferences s11= getSharedPreferences(STORAGE_DATA, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor1 = s11.edit();
                 //   editor.clear();
@@ -909,11 +910,19 @@ String []splited;
                 editor1.putString("state", state);
                 editor1.putString("location_string",location_string);
                 editor1.putString("group", group);
-
+                editor.putString("lat",""+lat1);
+                editor.putString("long",""+long1);
 
                 editor1.apply();
                 editor1.commit();
-                Intent i = new Intent(Register2Activity.this, WelcomeActivity.class);
+                SharedPreferences sharedPreferences1 = getSharedPreferences(STORAGE_NAME, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor11 = sharedPreferences1.edit();
+                // editor.putString("message",messageReceived);
+
+                editor11.putString("phoneNo", phone);
+                editor11.apply();
+                editor11.commit();
+                Intent i = new Intent(Register2Activity.this, ShareSkip1.class);
                 startActivity(i);
                 finish();
             }

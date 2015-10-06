@@ -102,6 +102,7 @@ public class RegisterActivity extends Activity implements LocationListener {
     Location location;
     public static final String STORAGE_FB = "FB";
     public static final String STORAGE_USERTYPE = "usertype";
+    public static final String VERIFY = "verify";
     String state, address, city, country, knownName;
     Geocoder geocoder;
     List<Address> addresses;
@@ -532,6 +533,7 @@ if(sname.contains(" "))
                     cursor.moveToFirst();
                     idd = cursor.getString(cursor.getColumnIndex("name"));
                 }
+                cursor.close();
                 if(isNetworkAvailable()) {
                     // Toast.makeText(RegisterActivity.this,idd , Toast.LENGTH_SHORT).show();
                     new Getstate().execute();
@@ -571,6 +573,7 @@ if(sname.contains(" "))
                     cursor.moveToFirst();
                     area = cursor.getString(cursor.getColumnIndex("area"));
                 }
+                cursor.close();
                 if(isNetworkAvailable()) {
                     new GetCity().execute();
                 }
@@ -802,6 +805,7 @@ if(sname.contains(" "))
                     cursor.moveToFirst();
                     bg = cursor.getString(cursor.getColumnIndex("name"));
                 }
+               cursor.close();
                 if(gen.equals("Mr."))
                 {
                     gender="M";
@@ -832,16 +836,19 @@ if(sname.contains(" "))
                     cursor1.moveToFirst();
                     state1 = cursor1.getString(cursor1.getColumnIndex("name"));
                 }
+                cursor1.close();
                 Cursor cursor2 = sqliteHelper4.getUser(city);
                 if (cursor2.getCount() != 0) {
                     cursor2.moveToFirst();
                     city1 = cursor2.getString(cursor2.getColumnIndex("name"));
                 }
+                cursor2.close();
                 Cursor cursor3 = sqliteHelper5.getUser(locality);
                 if (cursor3.getCount() != 0) {
                     cursor3.moveToFirst();
                     locality1 = cursor3.getString(cursor3.getColumnIndex("name"));
                 }
+                cursor3.close();
                 Log.d("got state Id",""+state+" "+city+" "+locality);
                 String REGISTER_URL = mess+"/rest/user/registeration/donar";
                 PostJsonObject json=new PostJsonObject();
@@ -942,7 +949,12 @@ if(sname.contains(" "))
             progressBar.setVisibility(View.INVISIBLE);
 
             if(file_url.equals("success")){
-
+                SharedPreferences s11= getSharedPreferences(VERIFY, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor11 = s11.edit();
+                //   editor.putString("message", messageReceived);
+                editor11.putBoolean("verified",true);
+                editor11.apply();
+                editor11.commit();
                 // Toast.makeText(RegisterActivity.this, file_url, Toast.LENGTH_LONG).show();
                 SharedPreferences s1= getSharedPreferences(STORAGE_DATA, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = s1.edit();
@@ -1591,6 +1603,7 @@ if(sname.contains(" "))
             int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
             return cursor.getString(index);
         }
+
     }
 
     public static String encodeTobase64(Bitmap image) {
