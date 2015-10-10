@@ -2,6 +2,7 @@ package com.bluecepheid.admin.vdonor;
 
 
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -27,6 +28,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
@@ -67,8 +69,11 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -80,6 +85,10 @@ public class DonoreditActivity extends Activity implements LocationListener{
     ImageView imgGen,imgDob,imgCity,imgLoc;
     Button bSubmit;
     String date;
+
+    private int datee;
+    DatePickerDialog dpd;
+    SimpleDateFormat sdf;
     ImageView imgProfile;
     Profile profile;
     String sGen,sBg,sCity,sLocal;
@@ -147,6 +156,10 @@ ImageView cancel;
 
         sqliteHelper2 = new SqliteHelper2(this);
         sqliteHelper1 = new SqliteHelper1(this);
+        calendar=Calendar.getInstance();
+        datee=calendar.get(Calendar.DAY_OF_MONTH);
+        month=calendar.get(Calendar.MONTH);
+        year=calendar.get(Calendar.YEAR);
         SharedPreferences sharedPreferences = getSharedPreferences(STORAGE_FB, Context.MODE_PRIVATE);
         latt=(TextView)findViewById(R.id.latt);
         longg=(TextView)findViewById(R.id.longg);
@@ -463,9 +476,40 @@ c1.setChecked(false);
             }
         });
         eDob.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
             @Override
             public void onClick(View v) {
-                setDate(v);
+               // setDate(v);
+                dpd = new DatePickerDialog(v.getContext(),
+                        new PickDate(), year, month, datee);
+
+                long maxDate = 0;
+                try {
+                    String maxString="31/12/1997";
+                    sdf=new SimpleDateFormat("dd/MM/yyyy");
+                    Date date1=sdf.parse(maxString);
+                    maxDate=date1.getTime();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                dpd.getDatePicker().setMaxDate(maxDate);
+
+
+                long startDate = 0;
+                try {
+                    String dateString = "01/01/1970";
+                    sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Date dat = sdf.parse(dateString);
+
+                    startDate = dat.getTime();
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dpd.getDatePicker().setMinDate(startDate);
+                dpd.updateDate(year, month, datee);
+                dpd.show();
             }
         });
         spGen.setOnClickListener(new View.OnClickListener() {
@@ -980,7 +1024,7 @@ Log.d("Got Id",userid);
                 jsonObj.put("emailDispFlag",0);
                 jsonObj.put("donateTypeId",""+1);
                 jsonObj.put("isDonated",""+0);
-                 Log.d("request",jsonObj.toString());
+                 Log.d("request edit ki",jsonObj.toString());
                 String p=json.postJson(jsonObj,REGISTER_URL);
                 Log.d("Response",p.toString());
                 String res=p.trim();
@@ -1905,5 +1949,63 @@ spCity.setText(dname[0]);
 
         alertDialog.show();
     }
+    private class PickDate implements DatePickerDialog.OnDateSetListener {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            view.updateDate(year, monthOfYear, dayOfMonth);
 
+            String s=null;
+            if(monthOfYear==0)
+            {
+                s="Jan";
+            }
+            if(monthOfYear==1)
+            {
+                s="Feb";
+            }
+            if(monthOfYear==2)
+            {
+                s="Mar";
+            }
+            if(monthOfYear==3)
+            {
+                s="Apr";
+            }
+            if(monthOfYear==4)
+            {
+                s="May";
+            }
+            if(monthOfYear==5)
+            {
+                s="Jun";
+            }
+            if(monthOfYear==6)
+            {
+                s="Jul";
+            }
+            if(monthOfYear==7)
+            {
+                s="Aug";
+            }
+            if(monthOfYear==8)
+            {
+                s="Sept";
+            }
+            if(monthOfYear==9)
+            {
+                s="Oct";
+            }
+            if(monthOfYear==10)
+            {
+                s="Nov";
+            }
+            if(monthOfYear==11)
+            {
+                s="Dec";
+            }
+            eDob.setText(dayOfMonth+ "-" +s+ "-" + year);
+            date=year+"-"+monthOfYear+"-"+dayOfMonth;
+            dpd.hide();
+        }
+    }
 }
